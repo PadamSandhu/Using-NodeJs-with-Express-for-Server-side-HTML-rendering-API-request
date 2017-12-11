@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="/style.css">        
+        
+    </head>
+
+    <body>
+    
+       
+
+        <div class="container ">
+            <nav class="navbar navbar-light bg-light justify-content-between">
+            <a class="navbar-brand" href=<%="/" %>>My Database</a>
+            <form action="/search" method="GET" class="form-inline text-right">
+                <input class="form-control mr-sm-2" type="text" name="moviename" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            </nav>
+            <h1 class="text-center">Movie Database</h1>
+
+           
+            <% for(let i=0;i<movielist.length;i++){%>
+
+        
+            <a class="movie-link" href=<%= /* link to individual movie URL */"/movie/"+movielist[i].id  %>>
+            <div class="media movie-list-item">
+                <div class="media-left">
+                    <div class="poster-container">
+                        <img class="media-object movie-poster" src=<%=  movielist[i].poster %> />
+                    </div>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <%= movielist[i].title %>
+                        <span class="badge">imdbRating: <%=movielist[i].imdbRating %></span>
+                    </h4>
+                    <div>
+                        <%= movielist[i].plot %>
+                    </div>
+                    <div class="released-date">
+                        Released: <%=movielist[i].released %>
+                    </div>
+                </div>
+            </div>
+            </a>
+            <%}%>
+            <% /*  ----------------------------------------------
+            -------------------------------------------------- */ %>
+
+        </div>
+    </body>
+</html>
+

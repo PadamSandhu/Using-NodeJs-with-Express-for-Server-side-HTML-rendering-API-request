@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/styles.css">        
+    </head>
+
+    <body>
+        <div class="container">
+            <div id="movie-details">
+                <h1 class="text-center"><%=MOVIE.title /* text for movie title */ %></h1>
+                <div class="row">
+                    <div class="col-xs-5">
+                        <img class="movie-poster" src=<%=MOVIE.poster /* text for movie poster */ %> />
+                    </div>
+                    <div class="col-xs-7">
+                        <table class="table">
+                            <% /*  ----------------------------------------------
+                            Repeat the following HTML structure for all key value pairs in movie object
+                            -------------------------------------------------- */ %>
+                            <% for(let i=0;i<Object.keys(MOVIE).length-1;i++){%>
+                            <tr>
+                                <td><%= Object.keys(MOVIE)[i] %></td>
+                                <td><%=Object.values(MOVIE)[i] %></td>
+                            </tr>
+                            <%}%>
+                            <% /*  ----------------------------------------------
+                            -------------------------------------------------- */ %>
+                        </table>
+                    </div>    
+                </div>
+
+                <div class="row">
+                    <div class=buttons>
+                        <a class="btn btn-primary" href=<%="/" %>>Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
